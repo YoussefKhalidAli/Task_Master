@@ -72,7 +72,6 @@ const loadContactPage = () => {
     const name = document.querySelector(".contactForm #name");
     const email = document.querySelector(".contactForm #email");
     const message = document.querySelector(".contactForm #message");
-    console.log(name.value);
     let prompt = "We recieved your message";
     if (name.value === "") prompt = "don't forget to tell us yourname";
     if (
@@ -126,6 +125,7 @@ const fetchTasks = async () => {
   const snapShot = await get(child(dbRef, "tasks/"));
   if (snapShot.exists()) {
     tasks = Object.values(snapShot.val());
+    tasks = tasks.sort((a, b) => new Date(a.dateAdded) - new Date(b.dateAdded));
   }
   isFetched = true;
 };

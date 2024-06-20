@@ -1,0 +1,36 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  font-size: 1.2rem;
+}
+
+.about > * {
+  margin: 20px 0px;
+}
+
+.about div {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+}
+
+.about div span {
+  width: 50%;
+  margin: 0px 20px;
+}
+
+.about label {
+  font-weight: bold;
+}
+
+.about ul {
+  margin-top: 10px;
+  list-style: none;
+  font-style: italic;
+}
+
+.about ul li {
+  margin: 5px 0px;
+}

@@ -1,0 +1,21 @@
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+
+.contactForm input {
+  margin-bottom: 20px;
+}
+
+.contactForm textarea {
+  margin-bottom: 20px;
+  height: 200px;
+}
+
+.contactForm button {
+  width: 50%;
+  height: 30px;
+  margin: auto;
+  font-weight: bold;
+}

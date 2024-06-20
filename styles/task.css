@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#pageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#addNewTask {
+  width: 120px;
+  height: 30px;
+  margin: 10px 0px 0px 0px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls > *:not(:nth-child(2)) {
+  margin-top: 20px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40vw;
+  min-height: 30vh;
+  height: auto;
+  margin: 25px 0px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #d3d3d3;
+}
+
+.task > * {
+  margin: 0px 10px;
+}
+
+.task h5 {
+  margin: 5px 0px;
+}
+
+.task span {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.task p {
+  width: 30vw;
+  overflow-wrap: break-word;
+}
+
+.completed {
+  color: green;
+}
+
+.notCompleted {
+  color: red;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 30vh;
+  padding: 20px 0px;
+  font-size: 1.5rem;
+}
+
+.icons > * {
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  color: red;
+}
+.fa-trash:active {
+  color: blue;
+}
+
+.fa-edit:hover {
+  color: gray;
+}
+
+.fa-check:hover {
+  color: lightgreen;
+}
+
+.backGround {
+  position: fixed;
+  top: 0.001px;
+  right: 0.001px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+  position: fixed;
+  top: 35vh;
+  left: 25vw;
+  height: 30vh;
+  width: 50vw;
+  margin: auto;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.hide {
+  display: none;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 10px 0px;
+}
+
+.modal form input {
+  width: 80%;
+  padding: 5px;
+}
+
+.modal form textarea {
+  width: 80%;
+  height: 100px;
+  padding: 0px 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  resize: vertical;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+#addTask {
+  width: 50px;
+  height: 30px;
+}
+@media (max-width: 900px) {
+  .task {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .task > * {
+    margin: 0px 0px;
+  }
+
+  .icons {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    min-height: 30px;
+    max-height: 30px;
+  }
+
+  .modal {
+    top: 15vh;
+    left: 15vw;
+    height: 70vh;
+    width: 70vw;
+  }
+
+  .modal form {
+    justify-content: center;
+  }
+
+  .modal form > * {
+    margin: 10px 0px;
+  }
+}

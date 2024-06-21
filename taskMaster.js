@@ -101,7 +101,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDtoTmBmL9xEUs4NTsMBv0_f2xk0scuomo",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "taskmaster-cd29c.firebaseapp.com",
   databaseURL: "https://taskmaster-cd29c-default-rtdb.firebaseio.com",
   projectId: "taskmaster-cd29c",

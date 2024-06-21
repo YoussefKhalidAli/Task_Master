@@ -99,6 +99,7 @@ import {
   update,
   remove,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+require("dotenv").config();
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,

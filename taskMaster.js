@@ -102,7 +102,7 @@ import {
 require("dotenv").config();
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: "AIzaSyDtoTmBmL9xEUs4NTsMBv0_f2xk0scuomo",
   authDomain: "taskmaster-cd29c.firebaseapp.com",
   databaseURL: "https://taskmaster-cd29c-default-rtdb.firebaseio.com",
   projectId: "taskmaster-cd29c",

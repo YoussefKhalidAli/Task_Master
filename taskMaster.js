@@ -126,6 +126,7 @@ const fetchTasks = async () => {
   const snapShot = await get(child(dbRef, "tasks/"));
   if (snapShot.exists()) {
     tasks = Object.values(snapShot.val());
+    tasks = tasks.sort((a, b) => new Date(a.dateAdded) - new Date(b.dateAdded));
   }
   isFetched = true;
 };
@@ -187,11 +188,9 @@ const generateTasks = (tasksToDisplay) => {
           task.completed ? "completed" : "notCompleted"
         }">${
           task.completed ? "completed" : "not completed"
-        }</span> </div> <div class="icons"> <i class="fa fa-trash" data-index="${
-          task.dateAdded
-        }"></i> <i class="fa fa-edit" data-index="${task.dateAdded}"></i> ${
+        }</span> </div> <div class="icons"> <i class="fa fa-trash" data-index="${index}"></i> <i class="fa fa-edit" data-index="${index}"></i> ${
           !task.completed
-            ? `<i class="fa fa-check" data-index=${task.dateAdded}></i>`
+            ? `<i class="fa fa-check" data-index=${index}></i>`
             : ""
         } </div> </div>
       `
@@ -220,7 +219,6 @@ const load = () => {
 
 // Function to delete a task
 const deleteHandler = (index) => {
-  index = tasks.findIndex((t) => t.dateAdded == index);
   remove(ref(db, "tasks/" + tasks[index].title + tasks[index].dateAdded));
   tasks.splice(index, 1);
   load();
@@ -237,7 +235,6 @@ const bindDelete = () => {
 
 // Function to edit a task
 const editHandler = (index) => {
-  index = tasks.findIndex((t) => t.dateAdded == index);
   editTaskIndex = index;
   const task = tasks[index];
   const modal = document.querySelector(".modal");
@@ -261,7 +258,6 @@ const bindEdit = () => {
 
 // Function to update tasks
 const updateTask = (index, field, value) => {
-  index = tasks.findIndex((t) => t.dateAdded == index);
   tasks[index][field] = value;
 };
 
@@ -282,7 +278,6 @@ const bindEditable = () => {
 
 // Function to check task as completed
 const checkHandler = (index) => {
-  index = tasks.findIndex((t) => t.dateAdded == index);
   tasks[index].completed = true;
   update(ref(db, "tasks/" + tasks[index].title + tasks[index].dateAdded), {
     completed: true,

@@ -107,15 +107,17 @@ and enter:
 
 ### 3. Add ignored files
 
-use the templates in /secretFiles by filling in your usernames and passwords and then add them to their respective folder. Check .gitignore for paths
+use the templates in setup/secretFiles by filling in your usernames and passwords and then add them to their respective folder. Check .gitignore for paths
 
 ### 4. Execute the Playbook
 
 Run the main playbook:
 
 ```bash
-ansible-playbook -i hosts.ini setup/init.yml
+ansible-playbook -i inventory.yml setup/init.yml --ask-vault-pass
 ```
+
+and enter you vault password
 
 ---
 
@@ -187,5 +189,15 @@ Sensitive files and credentials are handled as follows:
 * Kubernetes `kubeconfig` for Jenkins is generated dynamically using `jenkins-kubeconfig.yml.j2`
 * SSH keys and kubeconfig files should be securely stored and excluded from version control (see `.gitignore`)
 * For better security, consider integrating Vault or Ansible Vault for secret encryption
+
+## ✅ Final Notes
+
+<ul>
+  <li>This project is designed to be flexible — modify the playbooks and manifests to fit your LMS stack.</li>
+  <li>Keep sensitive files out of version control, and consider rotating secrets regularly.</li>
+  <li>This project will be expanded later to include monitoring</li>
+</ul>
+
+
 
 ---

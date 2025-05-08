@@ -30,11 +30,55 @@ frontend/
   * Ubuntu 20.04+ recommended
 * Public/Private SSH key pair configured for remote access
 
+## The current setup is for a single-node application. For multi-node setup change init.yml to this:
+
+```ini
+- name: Set up K3s Cluster
+  hosts: all
+  become: yes
+  roles:
+    - role: k3s
+
+- name: Deploy ai-lms project
+  hosts: master
+  vars:
+    front_path: /var/www/lms/front
+    back_path: /var/www/lms/back
+  vars_files:
+    - Creds.yml
+  become: yes
+  roles:
+    - role: common
+    - role: git
+    - role: deploy
+    - role: jenkins
+```
+
+## and change k3s/tasks/main.yml to this
+
+```ini
+
+- include_tasks: master.yml
+  when: "'master' in group_names"
+
+- include_tasks: worker.yml
+  when: "'slaves' in group_names"
+```
+
 ## 🚀 How to Run
 
 ### 1. Inventory File
 
-Prepare an inventory file (e.g. `hosts.ini`) with your master and worker node IPs:
+Prepare an inventory file (e.g. `inventory.yml`) with your IP(s):
+
+Single-node setup:
+
+```ini
+[server]
+192.168.1.10
+```
+
+Multi-node setup:
 
 ```ini
 [master]

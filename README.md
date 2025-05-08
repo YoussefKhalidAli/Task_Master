@@ -89,7 +89,27 @@ Multi-node setup:
 192.168.1.12
 ```
 
-### 2. Execute the Playbook
+### 2. Credentials file
+
+Create an ansible-vault file using
+
+```ini
+ansible-vault create Creds.yml
+```
+
+and enter:
+<ul>
+  <li>docker_username</li>
+  <li>docker_password</li>
+  <li>jenkins_username</li>
+  <li>jenkins_password</li>
+</ul>
+
+### 3. Add ignored files
+
+use the templates in /secretFiles by filling in your usernames and passwords and then add them to their respective folder. Check .gitignore for paths
+
+### 4. Execute the Playbook
 
 Run the main playbook:
 

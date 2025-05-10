@@ -133,8 +133,7 @@ metadata:
 <p>Go to the <code>pom.xml</code> file in the root of the repository, scroll to the end, and change the IP addresses on lines 123 and 127 to match your Nexus server.</p>
 
 <h4>pipeline</h4>
-<pre>
-  ```groovy
+```groovy
   pipeline {
     agent any
     tools {
@@ -283,7 +282,6 @@ metadata:
     }
 }
 ```
-</pre>
 <h1>Phase 4: Monitoring with Prometheus, Grafana, and Exporters</h1>
 <h2>Overview</h2>
 <p>This phase sets up monitoring for the CI/CD pipeline, Kubernetes cluster, and application health using:</p>

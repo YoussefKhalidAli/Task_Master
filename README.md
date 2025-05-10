@@ -133,7 +133,7 @@ metadata:
 <p>Go to the <code>pom.xml</code> file in the root of the repository, scroll to the end, and change the IP addresses on lines 123 and 127 to match your Nexus server.</p>
 
 <h4>pipeline</h4>
-```groovy
+```ini
   pipeline {
     agent any
     tools {
